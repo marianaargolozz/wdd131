@@ -42,7 +42,8 @@ header {
   padding: 1.75rem 1.5rem 1.25rem;
 }
 
-header h1 {
+#course-title {
+  display: block;
   text-align: center;
   font-family: var(--fonte-titulo);
   font-weight: 700;
@@ -50,16 +51,7 @@ header h1 {
   font-size: 1.5rem;
   letter-spacing: 0.01em;
   margin: 0 0 1rem;
-}
-
-header h1 span {
-  display: block;
-  font-family: var(--fonte-corpo);
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 500;
-  margin-top: 0.35rem;
-  color: #DDE3E2;
+  color: #F4F6F5;
 }
 
 header nav ul {
@@ -138,9 +130,10 @@ main > h1 {
 
 .card img {
   display: block;
-  max-width: 260px;
   width: 100%;
-  height: auto;
+  max-width: 260px;
+  height: 300px;
+  object-fit: cover;
   border-radius: 10px;
   margin: 0.75rem auto 1rem;
 }
