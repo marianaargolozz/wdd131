@@ -1,11 +1,11 @@
-// Ano atual e última modificação no rodapé
+// Ano atual e data da última modificação
 document.getElementById("currentyear").textContent =
   new Date().getFullYear();
 
 document.getElementById("lastModified").textContent =
   document.lastModified;
 
-// Menu hambúrguer responsivo
+// Menu hambúrguer
 const menuToggle = document.getElementById("menu-toggle");
 const primaryNav = document.getElementById("primary-nav");
 
