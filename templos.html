@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Álbum do Templo | WDD 131</title>
+  <meta name="description" content="Um álbum fotográfico de templos ao redor do mundo, do clássico ao contemporâneo.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS mobile-first, depois estilos para telas maiores -->
+  <link rel="stylesheet" href="estilos/templos.css">
+  <link rel="stylesheet" href="estilos/templos-grandes.css">
+
+  <script src="scripts/templos.js" defer></script>
+</head>
+<body>
+
+  <header>
+    <div class="header-bar">
+      <p class="site-title">Álbum do Templo</p>
+      <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+        <span class="menu-icon" aria-hidden="true"></span>
+      </button>
+    </div>
+    <nav id="primary-nav">
+      <ul>
+        <li><a href="index.html">Página Inicial</a></li>
+        <li><a href="#antigo">Antigo</a></li>
+        <li><a href="#novo">Novo</a></li>
+        <li><a href="#grande">Grande</a></li>
+        <li><a href="#pequeno">Pequeno</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Página Inicial</h1>
+    <p class="intro">Uma pequena coleção de templos, do antigo ao contemporâneo, reunidos neste álbum pessoal.</p>
+
+    <div class="container">
+
+      <figure>
+        <img src="imagens/saltlakecitytemple.jpg.jpg" alt="Templo de Salt Lake City" loading="lazy">
+        <figcaption>Templo de Salt Lake City</figcaption>
+      </figure>
+
+      <figure>
+        <img src="imagens/nauvootemple.jpg.jpg" alt="Templo de Nauvoo" loading="lazy">
+        <figcaption>Templo de Nauvoo</figcaption>
+      </figure>
+
+      <figure>
+        <img src="imagens/sptemple.jpg.jpg" alt="Templo de São Paulo" loading="lazy">
+        <figcaption>Templo de São Paulo</figcaption>
+      </figure>
+
+      <figure>
+        <img src="imagens/bostontemple.jpg.jpg" alt="Templo de Boston" loading="lazy">
+        <figcaption>Templo de Boston</figcaption>
+      </figure>
+
+      <figure>
+        <img src="imagens/toquiotemple.jpg.jpg" alt="Templo de Tóquio" loading="lazy">
+        <figcaption>Templo de Tóquio</figcaption>
+      </figure>
+
+      <figure>
+        <img src="imagens/templecardston.jpg.jpg" alt="Templo de Cardston" loading="lazy">
+        <figcaption>Templo de Cardston</figcaption>
+      </figure>
+
+      <figure>
+        <img src="imagens/templemesa.jpg.jpg" alt="Templo de Mesa" loading="lazy">
+        <figcaption>Templo de Mesa</figcaption>
+      </figure>
+
+      <figure>
+        <img src="imagens/rometemple.jpg.webp" alt="Templo de Roma" loading="lazy">
+        <figcaption>Templo de Roma</figcaption>
+      </figure>
+
+      <figure>
+        <img src="imagens/salvadortemple.jpg.webp" alt="Templo de Salvador" loading="lazy">
+        <figcaption>Templo de Salvador</figcaption>
+      </figure>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="currentyear"></span> 🌸 Mariana Argolo Santana 🌸 Bahia</p>
+    <p>Última modificação: <span id="lastModified"></span></p>
+  </footer>
+
+</body>
+</html>

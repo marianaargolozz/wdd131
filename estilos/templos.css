@@ -1,0 +1,208 @@
+/* ==========================================================
+   Álbum do Templo — templos.css (mobile-first)
+   ========================================================== */
+
+:root {
+  --purple: #4B1F73;
+  --purple-light: #F4A6C6;
+  --ink: #2B2E36;
+  --slate: #5A5566;
+  --white: #FFFFFF;
+  --cream: #FAF9FC;
+
+  --font-display: "Cormorant Garamond", serif;
+  --font-body: "Source Sans 3", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ---------------- Header ---------------- */
+
+header {
+  background-color: var(--purple);
+  color: var(--white);
+}
+
+.header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1.25rem;
+}
+
+.site-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.6rem;
+  letter-spacing: 0.03em;
+}
+
+/* Hamburger button — mobile only, hidden on larger screens via templos-grandes.css */
+.menu-toggle {
+  background: none;
+  border: none;
+  width: 42px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.menu-icon,
+.menu-icon::before,
+.menu-icon::after {
+  content: "";
+  display: block;
+  width: 26px;
+  height: 3px;
+  background-color: var(--white);
+  position: relative;
+  transition: transform 0.2s ease, opacity 0.2s ease, background-color 0.2s ease;
+}
+
+.menu-icon::before {
+  position: absolute;
+  top: -7px;
+}
+
+.menu-icon::after {
+  position: absolute;
+  top: 7px;
+}
+
+/* Turn the icon into an "X" when menu is open */
+.menu-toggle[aria-expanded="true"] .menu-icon {
+  background-color: transparent;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-icon::before {
+  top: 0;
+  transform: rotate(45deg);
+  background-color: var(--white);
+}
+
+.menu-toggle[aria-expanded="true"] .menu-icon::after {
+  top: 0;
+  transform: rotate(-45deg);
+  background-color: var(--white);
+}
+
+nav {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+}
+
+nav.open {
+  max-height: 300px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.25rem 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+nav a {
+  display: block;
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 500;
+  padding: 0.35rem 0.1rem;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  color: var(--purple-light);
+  border-bottom-color: var(--purple-light);
+}
+
+/* ---------------- Main ---------------- */
+
+main {
+  padding: 1.75rem 1.25rem 3rem;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2.1rem;
+  margin: 0 0 0.4rem;
+  color: var(--ink);
+}
+
+.intro {
+  margin: 0 0 1.75rem;
+  color: var(--slate);
+  max-width: 60ch;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+}
+
+figure {
+  margin: 0;
+  background-color: var(--white);
+}
+
+figure img {
+  width: 100%;
+  height: auto;
+}
+
+figcaption {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 0.6rem 0.5rem 0;
+  color: var(--purple);
+}
+
+/* ---------------- Footer ---------------- */
+
+footer {
+  background-color: var(--purple);
+  color: var(--white);
+  text-align: center;
+  padding: 1.25rem;
+  font-size: 0.9rem;
+}
+
+footer p {
+  margin: 0.2rem 0;
+}
