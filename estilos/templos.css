@@ -73,7 +73,7 @@ header {
   letter-spacing: 0.03em;
 }
 
-/* Hamburger button — mobile only, hidden on larger screens via templos-grandes.css */
+/* Hamburger button — mobile only, hidden on larger screens via templos-grande.css */
 .menu-toggle {
   background: none;
   border: none;
