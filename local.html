@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Página responsiva com informações gerais e climáticas sobre a cidade de Santos, São Paulo."
+  >
+
+  <meta name="author" content="Seu Nome">
+
+  <title>Santos | Página Local</title>
+
+  <link rel="stylesheet" href="estilos/local.css">
+
+  <script src="scripts/local.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <h1>Santos</h1>
+  </header>
+
+  <main>
+    <section class="hero">
+      <picture>
+        <source
+          srcset="imagens/santos-small.webp"
+          media="(max-width: 700px)"
+        >
+
+        <img
+          src="imagens/santos-large.webp"
+          alt="Vista da orla e dos jardins da praia de Santos"
+          width="1600"
+          height="900"
+        >
+      </picture>
+
+      <div class="information-container">
+        <section class="card data-card">
+          <h2>Dados</h2>
+
+          <dl class="details">
+            <div>
+              <dt>País:</dt>
+              <dd>Brasil</dd>
+            </div>
+
+            <div>
+              <dt>Estado:</dt>
+              <dd>São Paulo</dd>
+            </div>
+
+            <div>
+              <dt>Região:</dt>
+              <dd>Baixada Santista</dd>
+            </div>
+
+            <div>
+              <dt>Idioma:</dt>
+              <dd>Português</dd>
+            </div>
+
+            <div>
+              <dt>Moeda:</dt>
+              <dd>Real brasileiro</dd>
+            </div>
+
+            <div>
+              <dt>Fuso horário:</dt>
+              <dd>UTC−3</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="card weather-card">
+          <h2 class="weather-title">Clima</h2>
+
+          <img
+            class="weather-icon"
+            src="imagens/weather.svg"
+            alt="Céu parcialmente nublado"
+            width="80"
+            height="80"
+          >
+
+          <dl class="details">
+            <div>
+              <dt>Temperatura:</dt>
+
+              <dd>
+                <span id="temperature"></span> °C
+              </dd>
+            </div>
+
+            <div>
+              <dt>Condição:</dt>
+              <dd>Parcialmente nublado</dd>
+            </div>
+
+            <div>
+              <dt>Vento:</dt>
+
+              <dd>
+                <span id="wind-speed"></span> km/h
+              </dd>
+            </div>
+
+            <div>
+              <dt>Sensação térmica:</dt>
+              <dd id="windchill"></dd>
+            </div>
+          </dl>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      &copy; <span id="currentyear"></span>
+      | Seu Nome | Santos, Brasil
+    </p>
+
+    <p id="lastModified"></p>
+  </footer>
+</body>
+</html>
