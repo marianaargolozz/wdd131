@@ -1,0 +1,134 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: #252525;
+  background-color: #f4f4f4;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  color: #ffffff;
+  background-color: #4c1d64;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.7rem;
+}
+
+#menu-button {
+  padding: 0.3rem 0.6rem;
+  border: none;
+  color: #ffffff;
+  background-color: transparent;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+#navigation {
+  display: none;
+  flex-direction: column;
+  padding: 0 1rem 1rem;
+}
+
+#navigation.open {
+  display: flex;
+}
+
+#navigation a {
+  display: block;
+  padding: 0.9rem;
+  border-bottom: 1px solid rgb(255 255 255 / 25%);
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+}
+
+#navigation a:hover,
+#navigation a:focus,
+#navigation a.active {
+  color: #4c1d64;
+  background-color: #ffffff;
+}
+
+main {
+  width: min(100% - 2rem, 75rem);
+  min-height: 70vh;
+  margin: 0 auto;
+  padding: 1.5rem 0;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #4c1d64;
+  text-align: center;
+}
+
+.temple-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.temple-card {
+  overflow: hidden;
+  padding-top: 1rem;
+  border: 1px solid #dddddd;
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 12%);
+  text-align: center;
+}
+
+.temple-card h3 {
+  margin: 0 1rem 1rem;
+  color: #4c1d64;
+  font-size: 1.3rem;
+}
+
+.temple-card p {
+  margin: 0.5rem 1rem;
+  line-height: 1.5;
+}
+
+.temple-card p span {
+  color: #4c1d64;
+  font-weight: 700;
+}
+
+.temple-card img {
+  display: block;
+  width: 100%;
+  height: 250px;
+  margin-top: 1rem;
+  object-fit: cover;
+}
+
+footer {
+  padding: 1rem;
+  color: #ffffff;
+  background-color: #4c1d64;
+  text-align: center;
+}
+
+footer p {
+  margin: 0.4rem;
+}
+
+#last-modified {
+  color: #f5d9ff;
+  font-size: 0.9rem;
+}
