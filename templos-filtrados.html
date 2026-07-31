@@ -6,25 +6,21 @@
     name="viewport"
     content="width=device-width, initial-scale=1.0"
   >
-
   <meta
     name="description"
     content="Álbum responsivo de templos com filtros por data de consagração e tamanho."
   >
-
   <meta name="author" content="Mariana Argolo Santana">
 
   <title>Álbum de Templos | WDD 131</title>
 
   <link
     rel="stylesheet"
-    href="styles/templos-filtrados.css"
+    href="estilos/templos-filtrados.css"
   >
-
   <link
     rel="stylesheet"
-    href="styles/templos-filtrados-large.css"
-    media="screen and (min-width: 42rem)"
+    href="estilos/templos-filtrados-large.css"
   >
 
   <script src="scripts/templos.js" defer></script>
@@ -33,70 +29,65 @@
 
 <body>
   <header>
-    <div class="header-container">
-      <h1>Álbum de Templos</h1>
+    <div class="header-content">
+      <span class="site-title">Álbum do Templo</span>
 
       <button
         id="menu-button"
         type="button"
         aria-label="Abrir menu de navegação"
-        aria-expanded="false"
         aria-controls="navigation"
+        aria-expanded="false"
       >
         ☰
       </button>
     </div>
 
-    <nav id="navigation" aria-label="Filtros de templos">
-      <button
-        type="button"
-        class="filter-button active"
+    <nav id="navigation" aria-label="Navegação principal">
+      <a
+        href="#"
+        class="filter-link active"
         data-filter="inicio"
-        aria-pressed="true"
       >
-        Início
-      </button>
+        Página Inicial
+      </a>
 
-      <button
-        type="button"
-        class="filter-button"
+      <a
+        href="#"
+        class="filter-link"
         data-filter="antigos"
-        aria-pressed="false"
       >
-        Antigos
-      </button>
+        Antigo
+      </a>
 
-      <button
-        type="button"
-        class="filter-button"
+      <a
+        href="#"
+        class="filter-link"
         data-filter="novos"
-        aria-pressed="false"
       >
-        Novos
-      </button>
+        Novo
+      </a>
 
-      <button
-        type="button"
-        class="filter-button"
+      <a
+        href="#"
+        class="filter-link"
         data-filter="grandes"
-        aria-pressed="false"
       >
-        Grandes
-      </button>
+        Grande
+      </a>
 
-      <button
-        type="button"
-        class="filter-button"
+      <a
+        href="#"
+        class="filter-link"
         data-filter="pequenos"
-        aria-pressed="false"
       >
-        Pequenos
-      </button>
+        Pequeno
+      </a>
     </nav>
   </header>
 
   <main>
-    <h2 id="gallery-title">Todos os templos</h2>
+    <h1 id="gallery-title">Álbum de Templos</h1>
 
     <p
       id="results-message"

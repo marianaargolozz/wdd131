@@ -1,20 +1,37 @@
+:root {
+  --primary-color: #35134f;
+  --primary-hover: #542276;
+  --background-color: #f4f2f5;
+  --card-color: #ffffff;
+  --text-color: #242124;
+  --border-color: #d7d1db;
+  --focus-color: #ffd166;
+  --shadow-color: rgb(0 0 0 / 15%);
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
+  min-width: 320px;
   margin: 0;
-  color: #252525;
-  background-color: #f4f4f4;
+  color: var(--text-color);
+  background-color: var(--background-color);
   font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+}
+
+button {
+  font: inherit;
 }
 
 header {
   color: #ffffff;
-  background-color: #4c1d64;
+  background-color: var(--primary-color);
 }
 
-.header-container {
+.header-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -23,57 +40,81 @@ header {
   padding: 1rem;
 }
 
-h1 {
-  margin: 0;
-  font-size: 1.7rem;
+.site-title {
+  font-size: 1.6rem;
+  font-weight: 700;
 }
 
 #menu-button {
-  padding: 0.3rem 0.6rem;
-  border: none;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0.25rem;
+  border: 2px solid transparent;
+  border-radius: 0.3rem;
   color: #ffffff;
   background-color: transparent;
   font-size: 1.8rem;
   cursor: pointer;
 }
 
-#navigation {
-  display: none;
-  flex-direction: column;
-  padding: 0 1rem 1rem;
+#menu-button:hover {
+  background-color: var(--primary-hover);
 }
 
-#navigation.open {
+#menu-button:focus-visible {
+  outline: 3px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+nav {
   display: flex;
+  flex-direction: column;
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 1rem;
+  transition: max-height 0.3s ease;
 }
 
-#navigation a {
+nav.open {
+  max-height: 25rem;
+  padding-bottom: 1rem;
+}
+
+nav a {
   display: block;
-  padding: 0.9rem;
-  border-bottom: 1px solid rgb(255 255 255 / 25%);
+  padding: 0.85rem 1rem;
+  border-radius: 0.3rem;
   color: #ffffff;
   text-align: center;
   text-decoration: none;
 }
 
-#navigation a:hover,
-#navigation a:focus,
-#navigation a.active {
-  color: #4c1d64;
+nav a:hover {
+  background-color: var(--primary-hover);
+}
+
+nav a:focus-visible {
+  outline: 3px solid var(--focus-color);
+  outline-offset: -3px;
+}
+
+nav a.active {
+  color: var(--primary-color);
   background-color: #ffffff;
+  font-weight: 700;
 }
 
 main {
   width: min(100% - 2rem, 75rem);
   min-height: 70vh;
   margin: 0 auto;
-  padding: 1.5rem 0;
+  padding: 1.5rem 0 2rem;
 }
 
-h2 {
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-  color: #4c1d64;
+h1 {
+  margin: 0 0 1.5rem;
+  color: var(--primary-color);
+  font-size: 1.8rem;
   text-align: center;
 }
 
@@ -85,50 +126,63 @@ h2 {
 
 .temple-card {
   overflow: hidden;
-  padding-top: 1rem;
-  border: 1px solid #dddddd;
-  border-radius: 0.5rem;
-  background-color: #ffffff;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 12%);
-  text-align: center;
-}
-
-.temple-card h3 {
-  margin: 0 1rem 1rem;
-  color: #4c1d64;
-  font-size: 1.3rem;
-}
-
-.temple-card p {
-  margin: 0.5rem 1rem;
-  line-height: 1.5;
-}
-
-.temple-card p span {
-  color: #4c1d64;
-  font-weight: 700;
+  border: 1px solid var(--border-color);
+  border-radius: 0.6rem;
+  background-color: var(--card-color);
+  box-shadow: 0 3px 10px var(--shadow-color);
 }
 
 .temple-card img {
   display: block;
   width: 100%;
   height: 250px;
-  margin-top: 1rem;
+  background-color: #e6e2e8;
   object-fit: cover;
 }
 
-footer {
+.temple-information {
   padding: 1rem;
+  text-align: center;
+}
+
+.temple-information h2 {
+  margin: 0 0 0.8rem;
+  color: var(--primary-color);
+  font-size: 1.3rem;
+}
+
+.temple-information p {
+  margin: 0.45rem 0;
+}
+
+.temple-information strong {
+  color: var(--primary-color);
+}
+
+footer {
+  padding: 1.25rem 1rem;
   color: #ffffff;
-  background-color: #4c1d64;
+  background-color: var(--primary-color);
   text-align: center;
 }
 
 footer p {
-  margin: 0.4rem;
+  margin: 0.35rem 0;
 }
 
 #last-modified {
-  color: #f5d9ff;
+  color: #ffffff;
   font-size: 0.9rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }

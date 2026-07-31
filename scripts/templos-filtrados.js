@@ -3,56 +3,52 @@
 const templeCards = document.querySelector("#temple-cards");
 const galleryTitle = document.querySelector("#gallery-title");
 const resultsMessage = document.querySelector("#results-message");
-
-const filterButtons = document.querySelectorAll(
-  ".filter-button"
-);
-
+const filterLinks = document.querySelectorAll(".filter-link");
 const menuButton = document.querySelector("#menu-button");
 const navigation = document.querySelector("#navigation");
-
 const currentYear = document.querySelector("#current-year");
 const lastModified = document.querySelector("#last-modified");
 
 function obterAnoDaConsagracao(templo) {
-  return Number.parseInt(
-    templo.consagracao.substring(0, 4),
-    10
-  );
+  return Number.parseInt(templo.consagracao.substring(0, 4), 10);
 }
 
 function criarCartoesDeTemplos(listaDeTemplos) {
-  const cartoes = listaDeTemplos.map((templo) => `
-    <article class="temple-card">
-      <img
-        src="${templo.urlDaImagem}"
-        alt="Templo de ${templo.nomeDoTemplo}"
-        loading="lazy"
-        decoding="async"
-        width="400"
-        height="250"
-      >
+  const cartoes = listaDeTemplos
+    .map(
+      (templo) => `
+        <article class="temple-card">
+          <img
+            src="${templo.urlDaImagem}"
+            alt="Templo de ${templo.nomeDoTemplo}"
+            loading="lazy"
+            decoding="async"
+            width="400"
+            height="250"
+          >
 
-      <div class="temple-information">
-        <h3>${templo.nomeDoTemplo}</h3>
+          <div class="temple-information">
+            <h2>${templo.nomeDoTemplo}</h2>
 
-        <p>
-          <strong>Localização:</strong>
-          ${templo.localizacao}
-        </p>
+            <p>
+              <strong>Localização:</strong>
+              ${templo.localizacao}
+            </p>
 
-        <p>
-          <strong>Consagração:</strong>
-          ${templo.consagracao}
-        </p>
+            <p>
+              <strong>Consagração:</strong>
+              ${templo.consagracao}
+            </p>
 
-        <p>
-          <strong>Área:</strong>
-          ${templo.area.toLocaleString("pt-BR")} pés quadrados
-        </p>
-      </div>
-    </article>
-  `).join("");
+            <p>
+              <strong>Área:</strong>
+              ${templo.area.toLocaleString("pt-BR")} pés quadrados
+            </p>
+          </div>
+        </article>
+      `
+    )
+    .join("");
 
   templeCards.innerHTML = cartoes;
 
@@ -90,24 +86,24 @@ function filtrarTemplos(filtro) {
 
 function obterTituloDoFiltro(filtro) {
   const titulos = {
-    inicio: "Todos os templos",
-    antigos: "Templos antigos",
-    novos: "Templos novos",
-    grandes: "Templos grandes",
-    pequenos: "Templos pequenos"
+    inicio: "Álbum de Templos",
+    antigos: "Templos Antigos",
+    novos: "Templos Novos",
+    grandes: "Templos Grandes",
+    pequenos: "Templos Pequenos"
   };
 
   return titulos[filtro];
 }
 
-function atualizarBotaoSelecionado(botaoSelecionado) {
-  filterButtons.forEach((botao) => {
-    botao.classList.remove("active");
-    botao.setAttribute("aria-pressed", "false");
+function atualizarLinkAtivo(linkSelecionado) {
+  filterLinks.forEach((link) => {
+    link.classList.remove("active");
+    link.removeAttribute("aria-current");
   });
 
-  botaoSelecionado.classList.add("active");
-  botaoSelecionado.setAttribute("aria-pressed", "true");
+  linkSelecionado.classList.add("active");
+  linkSelecionado.setAttribute("aria-current", "page");
 }
 
 function fecharMenu() {
@@ -125,40 +121,37 @@ function fecharMenu() {
 function alternarMenu() {
   navigation.classList.toggle("open");
 
-  const menuEstaAberto =
-    navigation.classList.contains("open");
+  const menuAberto = navigation.classList.contains("open");
 
   menuButton.setAttribute(
     "aria-expanded",
-    `${menuEstaAberto}`
+    `${menuAberto}`
   );
 
   menuButton.setAttribute(
     "aria-label",
-    menuEstaAberto
+    menuAberto
       ? "Fechar menu de navegação"
       : "Abrir menu de navegação"
   );
 
-  menuButton.textContent =
-    menuEstaAberto ? "✕" : "☰";
+  menuButton.textContent = menuAberto ? "✕" : "☰";
 }
 
 function exibirFiltro(filtro) {
   const templosFiltrados = filtrarTemplos(filtro);
 
-  galleryTitle.textContent =
-    obterTituloDoFiltro(filtro);
-
+  galleryTitle.textContent = obterTituloDoFiltro(filtro);
   criarCartoesDeTemplos(templosFiltrados);
 }
 
-filterButtons.forEach((botao) => {
-  botao.addEventListener("click", () => {
-    const filtroSelecionado =
-      botao.dataset.filter;
+filterLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
 
-    atualizarBotaoSelecionado(botao);
+    const filtroSelecionado = link.dataset.filter;
+
+    atualizarLinkAtivo(link);
     exibirFiltro(filtroSelecionado);
     fecharMenu();
   });
@@ -166,8 +159,7 @@ filterButtons.forEach((botao) => {
 
 menuButton.addEventListener("click", alternarMenu);
 
-currentYear.textContent =
-  `${new Date().getFullYear()}`;
+currentYear.textContent = `${new Date().getFullYear()}`;
 
 lastModified.textContent =
   `Última modificação: ${document.lastModified}`;
