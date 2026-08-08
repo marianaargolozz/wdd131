@@ -1,0 +1,727 @@
+* {
+    box-sizing: border-box;
+}
+
+
+:root {
+    --roxo: #6548c8;
+    --roxo-escuro: #382b68;
+    --lilas: #eeeafd;
+    --coral: #e97862;
+    --texto: #292638;
+    --cinza: #686473;
+    --fundo: #faf9fd;
+    --branco: #ffffff;
+    --borda: #ddd9e8;
+}
+
+
+body {
+    margin: 0;
+
+    background-color: var(--fundo);
+
+    color: var(--texto);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    line-height: 1.6;
+}
+
+
+h1,
+h2,
+h3,
+.logo {
+    font-family:
+        "Trebuchet MS",
+        Arial,
+        sans-serif;
+}
+
+
+h1 {
+    font-size: 2.8rem;
+
+    line-height: 1.1;
+}
+
+
+h2 {
+    color: var(--roxo-escuro);
+}
+
+
+a {
+    color: inherit;
+}
+
+
+.topo {
+    display: flex;
+
+    max-width: 1100px;
+
+    min-height: 70px;
+
+    margin: auto;
+
+    padding:
+        0
+        1rem;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+header {
+    border-bottom:
+        1px solid var(--borda);
+
+    background-color:
+        var(--branco);
+}
+
+
+.logo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 0.5rem;
+
+    color: var(--roxo-escuro);
+
+    font-size: 1.3rem;
+
+    font-weight: bold;
+
+    text-decoration: none;
+}
+
+
+.logo span:first-child {
+    display: grid;
+
+    width: 35px;
+    height: 35px;
+
+    place-items: center;
+
+    border-radius: 10px;
+
+    background-color: var(--roxo);
+
+    color: var(--branco);
+}
+
+
+nav {
+    display: flex;
+
+    gap: 0.5rem;
+}
+
+
+nav a {
+    padding:
+        0.5rem
+        0.8rem;
+
+    border-radius: 8px;
+
+    color: var(--cinza);
+
+    text-decoration: none;
+}
+
+
+nav a:hover,
+nav .ativo {
+    background-color: var(--lilas);
+
+    color: var(--roxo);
+}
+
+
+#menu-button {
+    display: none;
+
+    border: 0;
+
+    background: none;
+
+    color: var(--roxo-escuro);
+
+    font-size: 1.5rem;
+
+    cursor: pointer;
+}
+
+
+/* INÍCIO */
+
+.inicio {
+    display: grid;
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding:
+        5rem
+        1rem;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap: 4rem;
+
+    align-items: center;
+}
+
+
+.inicio-texto p {
+    max-width: 600px;
+
+    color: var(--cinza);
+}
+
+
+.destaque {
+    color: var(--roxo) !important;
+
+    font-size: 0.8rem;
+
+    font-weight: bold;
+
+    letter-spacing: 0.1rem;
+}
+
+
+.botao {
+    display: inline-block;
+
+    margin-top: 1rem;
+
+    padding:
+        0.8rem
+        1.2rem;
+
+    border: 0;
+
+    border-radius: 8px;
+
+    background-color: var(--roxo);
+
+    color: var(--branco);
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+
+.botao:hover {
+    background-color:
+        var(--roxo-escuro);
+}
+
+
+.resumo {
+    padding: 1.5rem;
+
+    border:
+        1px solid var(--borda);
+
+    border-radius: 15px;
+
+    background-color: var(--branco);
+}
+
+
+.resumo-item {
+    margin-top: 0.7rem;
+
+    padding: 0.8rem;
+
+    border-radius: 8px;
+
+    background-color: var(--fundo);
+}
+
+
+.concluido {
+    color: var(--cinza);
+
+    text-decoration: line-through;
+}
+
+
+.mensagem {
+    margin-top: 1rem;
+
+    padding: 0.8rem;
+
+    border-radius: 8px;
+
+    background-color: #fff0ec;
+
+    color: #7d4539;
+}
+
+
+/* SEÇÕES */
+
+.secao {
+    padding:
+        4rem
+        1rem;
+}
+
+
+.secao > h2,
+.secao > .cards,
+.filtros-dicas {
+    max-width: 1100px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.secao-clara {
+    background-color: var(--lilas);
+}
+
+
+.cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 1rem;
+}
+
+
+.card {
+    padding: 1.4rem;
+
+    border:
+        1px solid var(--borda);
+
+    border-radius: 12px;
+
+    background-color: var(--branco);
+}
+
+
+.card p {
+    color: var(--cinza);
+}
+
+
+.icone {
+    display: grid;
+
+    width: 42px;
+    height: 42px;
+
+    margin-bottom: 1rem;
+
+    place-items: center;
+
+    border-radius: 10px;
+
+    background-color: var(--lilas);
+
+    color: var(--roxo);
+
+    font-weight: bold;
+}
+
+
+.chamada {
+    display: flex;
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 2rem;
+}
+
+
+/* PÁGINAS */
+
+.titulo-pagina {
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding:
+        4rem
+        1rem
+        2rem;
+}
+
+
+.titulo-pagina p {
+    color: var(--cinza);
+}
+
+
+/* FORMULÁRIO */
+
+.area-tarefas {
+    display: grid;
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding:
+        1rem
+        1rem
+        5rem;
+
+    grid-template-columns:
+        350px
+        1fr;
+
+    gap: 1.5rem;
+}
+
+
+.formulario-card,
+.lista-card {
+    padding: 1.5rem;
+
+    border:
+        1px solid var(--borda);
+
+    border-radius: 12px;
+
+    background-color: var(--branco);
+}
+
+
+form label {
+    display: block;
+
+    margin-top: 1rem;
+
+    margin-bottom: 0.3rem;
+
+    font-weight: bold;
+}
+
+
+form input,
+form select {
+    width: 100%;
+
+    min-height: 44px;
+
+    padding: 0.7rem;
+
+    border:
+        1px solid var(--borda);
+
+    border-radius: 7px;
+
+    background-color: var(--branco);
+}
+
+
+.mensagem-formulario {
+    color: #287046;
+
+    font-size: 0.9rem;
+}
+
+
+/* LISTA */
+
+.lista-topo {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 1rem;
+
+    align-items: center;
+}
+
+
+.lista-topo p {
+    color: var(--cinza);
+}
+
+
+.filtros {
+    display: flex;
+
+    gap: 0.4rem;
+
+    flex-wrap: wrap;
+}
+
+
+.filtro {
+    padding:
+        0.5rem
+        0.7rem;
+
+    border:
+        1px solid var(--borda);
+
+    border-radius: 20px;
+
+    background-color: var(--branco);
+
+    cursor: pointer;
+}
+
+
+.ativo-filtro {
+    background-color: var(--lilas);
+
+    color: var(--roxo);
+
+    border-color: var(--roxo);
+}
+
+
+.tarefa {
+    display: grid;
+
+    margin-top: 0.7rem;
+
+    padding: 0.8rem;
+
+    grid-template-columns:
+        auto
+        1fr
+        auto;
+
+    gap: 0.8rem;
+
+    align-items: center;
+
+    border:
+        1px solid var(--borda);
+
+    border-radius: 10px;
+}
+
+
+.tarefa h3 {
+    margin:
+        0
+        0
+        0.2rem;
+}
+
+
+.tarefa p {
+    margin: 0;
+
+    color: var(--cinza);
+
+    font-size: 0.85rem;
+}
+
+
+.tarefa-concluida h3 {
+    color: var(--cinza);
+
+    text-decoration: line-through;
+}
+
+
+.botao-check {
+    border: 0;
+
+    background: none;
+
+    color: var(--roxo);
+
+    font-size: 1.3rem;
+
+    cursor: pointer;
+}
+
+
+.botao-excluir {
+    padding: 0.4rem;
+
+    border: 0;
+
+    background: none;
+
+    color: #8f4438;
+
+    cursor: pointer;
+}
+
+
+.lista-vazia {
+    margin-top: 1rem;
+
+    padding: 2rem;
+
+    border-radius: 10px;
+
+    background-color: var(--lilas);
+
+    text-align: center;
+}
+
+
+/* DICAS */
+
+.filtros-dicas {
+    margin-bottom: 1.5rem;
+}
+
+
+.categoria {
+    margin-bottom: 0.4rem;
+
+    color: var(--roxo) !important;
+
+    font-size: 0.8rem;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+}
+
+
+/* RODAPÉ */
+
+footer {
+    padding: 2rem 1rem;
+
+    background-color: var(--roxo-escuro);
+
+    color: var(--branco);
+
+    text-align: center;
+}
+
+
+footer p {
+    margin: 0.3rem;
+}
+
+
+/* TABLET */
+
+@media (max-width: 800px) {
+
+    .inicio,
+    .area-tarefas {
+        grid-template-columns: 1fr;
+    }
+
+
+    .cards {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .inicio {
+        gap: 2rem;
+    }
+
+}
+
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+
+    #menu-button {
+        display: block;
+    }
+
+
+    nav {
+        position: absolute;
+
+        top: 70px;
+
+        right: 1rem;
+        left: 1rem;
+
+        display: none;
+
+        padding: 1rem;
+
+        flex-direction: column;
+
+        border:
+            1px solid var(--borda);
+
+        border-radius: 10px;
+
+        background-color: var(--branco);
+    }
+
+
+    nav.menu-aberto {
+        display: flex;
+    }
+
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+
+    .chamada,
+    .lista-topo {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .inicio {
+        padding-top: 3rem;
+    }
+
+
+    .tarefa {
+        grid-template-columns:
+            auto
+            1fr;
+    }
+
+
+    .botao-excluir {
+        grid-column: 2;
+    }
+
+}

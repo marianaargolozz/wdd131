@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Veja dicas simples de foco, organização e bem-estar para melhorar sua rotina diária com ajuda do RotinaFlow."
+    >
+
+    <meta name="author" content="Mariana">
+
+    <title>Dicas | RotinaFlow</title>
+
+    <link rel="stylesheet" href="styles/rotinaflow.css">
+
+    <script src="scripts/main.js" defer></script>
+    <script src="scripts/dicas.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+
+        <div class="topo">
+
+            <a href="index.html" class="logo">
+                <span>✓</span>
+                RotinaFlow
+            </a>
+
+            <button
+                id="menu-button"
+                type="button"
+                aria-label="Abrir menu"
+            >
+                ☰
+            </button>
+
+            <nav id="menu">
+                <a href="index.html">Início</a>
+                <a href="tarefas.html">Tarefas</a>
+                <a href="dicas.html" class="ativo">Dicas</a>
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <section class="titulo-pagina">
+
+            <p class="destaque">
+                DICAS PARA SUA ROTINA
+            </p>
+
+            <h1>
+                Pequenas mudanças fazem diferença.
+            </h1>
+
+            <p>
+                Encontre sugestões simples para melhorar
+                seu foco, organização e bem-estar.
+            </p>
+
+        </section>
+
+
+        <section class="secao">
+
+            <div class="filtros filtros-dicas">
+
+                <button
+                    type="button"
+                    class="filtro filtro-dica ativo-filtro"
+                    data-categoria="Todas"
+                >
+                    Todas
+                </button>
+
+                <button
+                    type="button"
+                    class="filtro filtro-dica"
+                    data-categoria="Foco"
+                >
+                    Foco
+                </button>
+
+                <button
+                    type="button"
+                    class="filtro filtro-dica"
+                    data-categoria="Organização"
+                >
+                    Organização
+                </button>
+
+                <button
+                    type="button"
+                    class="filtro filtro-dica"
+                    data-categoria="Bem-estar"
+                >
+                    Bem-estar
+                </button>
+
+            </div>
+
+
+            <div
+                id="lista-dicas"
+                class="cards"
+            ></div>
+
+        </section>
+
+
+        <section class="secao secao-clara">
+
+            <div class="chamada">
+
+                <div>
+
+                    <h2>
+                        Não precisa fazer tudo hoje.
+                    </h2>
+
+                    <p>
+                        Escolher prioridades também significa
+                        decidir o que pode esperar.
+                    </p>
+
+                </div>
+
+                <a href="tarefas.html" class="botao">
+                    Organizar tarefas
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            &copy;
+            <span class="ano"></span>
+            | Mariana | RotinaFlow
+        </p>
+
+        <p class="modificacao"></p>
+
+    </footer>
+
+</body>
+
+</html>

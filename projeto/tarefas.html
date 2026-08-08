@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Organize tarefas no RotinaFlow, escolha categorias e prioridades e acompanhe as atividades concluídas durante o dia."
+    >
+
+    <meta name="author" content="Mariana">
+
+    <title>Minhas Tarefas | RotinaFlow</title>
+
+    <link rel="stylesheet" href="styles/rotinaflow.css">
+
+    <script src="scripts/main.js" defer></script>
+    <script src="scripts/tarefas.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+
+        <div class="topo">
+
+            <a href="index.html" class="logo">
+                <span>✓</span>
+                RotinaFlow
+            </a>
+
+            <button
+                id="menu-button"
+                type="button"
+                aria-label="Abrir menu"
+            >
+                ☰
+            </button>
+
+            <nav id="menu">
+                <a href="index.html">Início</a>
+                <a href="tarefas.html" class="ativo">Tarefas</a>
+                <a href="dicas.html">Dicas</a>
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <section class="titulo-pagina">
+
+            <p class="destaque">
+                MINHA ROTINA
+            </p>
+
+            <h1>
+                Organize suas tarefas
+            </h1>
+
+            <p>
+                Adicione o que precisa fazer e acompanhe
+                seu progresso ao longo do dia.
+            </p>
+
+        </section>
+
+
+        <section class="area-tarefas">
+
+            <div class="formulario-card">
+
+                <h2>Nova tarefa</h2>
+
+                <form id="form-tarefa">
+
+                    <label for="titulo">
+                        Nome da tarefa
+                    </label>
+
+                    <input
+                        type="text"
+                        id="titulo"
+                        name="titulo"
+                        maxlength="60"
+                        required
+                    >
+
+
+                    <label for="categoria">
+                        Categoria
+                    </label>
+
+                    <select
+                        id="categoria"
+                        name="categoria"
+                        required
+                    >
+
+                        <option value="" disabled selected>
+                            Selecione
+                        </option>
+
+                        <option value="Estudos">
+                            Estudos
+                        </option>
+
+                        <option value="Trabalho">
+                            Trabalho
+                        </option>
+
+                        <option value="Pessoal">
+                            Pessoal
+                        </option>
+
+                        <option value="Casa">
+                            Casa
+                        </option>
+
+                    </select>
+
+
+                    <label for="prioridade">
+                        Prioridade
+                    </label>
+
+                    <select
+                        id="prioridade"
+                        name="prioridade"
+                        required
+                    >
+
+                        <option value="" disabled selected>
+                            Selecione
+                        </option>
+
+                        <option value="Alta">
+                            Alta
+                        </option>
+
+                        <option value="Média">
+                            Média
+                        </option>
+
+                        <option value="Baixa">
+                            Baixa
+                        </option>
+
+                    </select>
+
+
+                    <button type="submit" class="botao">
+                        Adicionar tarefa
+                    </button>
+
+                </form>
+
+                <p
+                    id="mensagem-formulario"
+                    class="mensagem-formulario"
+                    aria-live="polite"
+                ></p>
+
+            </div>
+
+
+            <div class="lista-card">
+
+                <div class="lista-topo">
+
+                    <div>
+                        <h2>Minhas tarefas</h2>
+
+                        <p id="contador">
+                            0 de 0 concluídas
+                        </p>
+                    </div>
+
+
+                    <div class="filtros">
+
+                        <button
+                            type="button"
+                            class="filtro ativo-filtro"
+                            data-filtro="todas"
+                        >
+                            Todas
+                        </button>
+
+                        <button
+                            type="button"
+                            class="filtro"
+                            data-filtro="pendentes"
+                        >
+                            Pendentes
+                        </button>
+
+                        <button
+                            type="button"
+                            class="filtro"
+                            data-filtro="concluidas"
+                        >
+                            Concluídas
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div id="lista-tarefas"></div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            &copy;
+            <span class="ano"></span>
+            | Mariana | RotinaFlow
+        </p>
+
+        <p class="modificacao"></p>
+
+    </footer>
+
+</body>
+
+</html>
