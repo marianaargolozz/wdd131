@@ -7,8 +7,7 @@ let tarefas =
     ) || [];
 
 
-let filtroAtual =
-    "todas";
+let filtroAtual = "todas";
 
 
 const formulario =
@@ -28,22 +27,18 @@ const botoesFiltro =
 
 
 function salvarTarefas() {
-
     localStorage.setItem(
         chaveStorage,
         JSON.stringify(tarefas)
     );
-
 }
 
 
 function adicionarTarefa(evento) {
-
     evento.preventDefault();
 
-
     const titulo =
-        document.querySelector("#titulo").value;
+        document.querySelector("#titulo").value.trim();
 
     const categoria =
         document.querySelector("#categoria").value;
@@ -57,189 +52,81 @@ function adicionarTarefa(evento) {
         categoria === "" ||
         prioridade === ""
     ) {
-
         mensagem.textContent =
-            "Preencha os campos obrigatórios.";
+            `Preencha todos os campos obrigatórios.`;
 
         return;
-
     }
 
 
     const tarefa = {
-
         id: Date.now(),
-
         titulo: titulo,
-
         categoria: categoria,
-
         prioridade: prioridade,
-
         concluida: false
-
     };
 
 
     tarefas.push(tarefa);
 
-
     salvarTarefas();
-
     mostrarTarefas();
-
 
     formulario.reset();
 
-
     mensagem.textContent =
         `Tarefa "${tarefa.titulo}" adicionada!`;
-
 }
 
 
 function concluirTarefa(id) {
-
     tarefas.forEach((tarefa) => {
 
         if (tarefa.id === id) {
-
             tarefa.concluida =
                 !tarefa.concluida;
-
         }
 
     });
 
-
     salvarTarefas();
-
     mostrarTarefas();
-
 }
 
 
 function excluirTarefa(id) {
-
-    tarefas =
-        tarefas.filter(
-            (tarefa) => tarefa.id !== id
-        );
-
+    tarefas = tarefas.filter(
+        (tarefa) => tarefa.id !== id
+    );
 
     salvarTarefas();
-
     mostrarTarefas();
-
 }
 
 
 function tarefasFiltradas() {
 
     if (filtroAtual === "pendentes") {
-
         return tarefas.filter(
             (tarefa) => !tarefa.concluida
         );
-
     }
 
 
     if (filtroAtual === "concluidas") {
-
         return tarefas.filter(
             (tarefa) => tarefa.concluida
         );
-
     }
 
 
     return tarefas;
-
-}
-
-
-function mostrarTarefas() {
-
-    lista.innerHTML =
-        "";
-
-
-    const resultado =
-        tarefasFiltradas();
-
-
-    if (resultado.length === 0) {
-
-        lista.innerHTML = `
-            <div class="lista-vazia">
-                <p>Nenhuma tarefa encontrada.</p>
-            </div>
-        `;
-
-    }
-
-
-    resultado.forEach((tarefa) => {
-
-        const item =
-            document.createElement("div");
-
-
-        item.className =
-            `tarefa ${tarefa.concluida ? "tarefa-concluida" : ""}`;
-
-
-        item.innerHTML = `
-
-            <button
-                class="botao-check"
-                data-id="${tarefa.id}"
-                type="button"
-            >
-                ${tarefa.concluida ? "✓" : "○"}
-            </button>
-
-            <div class="tarefa-texto">
-
-                <h3>
-                    ${tarefa.titulo}
-                </h3>
-
-                <p>
-                    ${tarefa.categoria}
-                    •
-                    ${tarefa.prioridade}
-                </p>
-
-            </div>
-
-            <button
-                class="botao-excluir"
-                data-id="${tarefa.id}"
-                type="button"
-            >
-                Excluir
-            </button>
-
-        `;
-
-
-        lista.appendChild(item);
-
-    });
-
-
-    atualizarContador();
-
 }
 
 
 function atualizarContador() {
-
-    const total =
-        tarefas.length;
-
+    const total = tarefas.length;
 
     const concluidas =
         tarefas.filter(
@@ -249,32 +136,97 @@ function atualizarContador() {
 
     contador.textContent =
         `${concluidas} de ${total} concluídas`;
-
 }
 
 
-function mudarFiltro(evento) {
+function mostrarTarefas() {
+    lista.innerHTML = ``;
 
-    filtroAtual =
-        evento.target.dataset.filtro;
+    const resultado =
+        tarefasFiltradas();
 
 
-    botoesFiltro.forEach((botao) => {
+    if (resultado.length === 0) {
+        lista.innerHTML = `
+            <div class="lista-vazia">
+                <p>Nenhuma tarefa encontrada.</p>
+            </div>
+        `;
+    }
 
-        botao.classList.remove(
-            "ativo-filtro"
-        );
+
+    resultado.forEach((tarefa) => {
+
+        const item =
+            document.createElement("article");
+
+
+        item.className =
+            `tarefa ${
+                tarefa.concluida
+                    ? "tarefa-concluida"
+                    : ""
+            }`;
+
+
+        item.innerHTML = `
+            <button
+                class="botao-check"
+                data-id="${tarefa.id}"
+                type="button"
+                aria-label="Alterar status da tarefa ${tarefa.titulo}"
+            >
+                ${tarefa.concluida ? "✓" : "○"}
+            </button>
+
+            <div class="tarefa-texto">
+                <h3>${tarefa.titulo}</h3>
+
+                <p>
+                    ${tarefa.categoria}
+                    •
+                    ${tarefa.prioridade}
+                </p>
+            </div>
+
+            <button
+                class="botao-excluir"
+                data-id="${tarefa.id}"
+                type="button"
+                aria-label="Excluir tarefa ${tarefa.titulo}"
+            >
+                Excluir
+            </button>
+        `;
+
+
+        lista.appendChild(item);
 
     });
 
 
-    evento.target.classList.add(
+    atualizarContador();
+}
+
+
+function mudarFiltro(evento) {
+    filtroAtual =
+        evento.currentTarget.dataset.filtro;
+
+
+    botoesFiltro.forEach((botao) => {
+        botao.classList.remove(
+            "ativo-filtro"
+        );
+    });
+
+
+    evento.currentTarget.classList.add(
         "ativo-filtro"
     );
 
 
     mostrarTarefas();
-
 }
 
 
@@ -282,31 +234,28 @@ lista.addEventListener(
     "click",
     (evento) => {
 
+        const elemento =
+            evento.target;
+
         const id =
-            Number(
-                evento.target.dataset.id
-            );
+            Number(elemento.dataset.id);
 
 
         if (
-            evento.target.classList.contains(
+            elemento.classList.contains(
                 "botao-check"
             )
         ) {
-
             concluirTarefa(id);
-
         }
 
 
         if (
-            evento.target.classList.contains(
+            elemento.classList.contains(
                 "botao-excluir"
             )
         ) {
-
             excluirTarefa(id);
-
         }
 
     }
@@ -320,12 +269,10 @@ formulario.addEventListener(
 
 
 botoesFiltro.forEach((botao) => {
-
     botao.addEventListener(
         "click",
         mudarFiltro
     );
-
 });
 
 

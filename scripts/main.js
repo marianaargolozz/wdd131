@@ -3,47 +3,49 @@ const menu = document.querySelector("#menu");
 
 
 function mostrarMenu() {
+    const menuAberto = menu.classList.toggle("menu-aberto");
 
-    menu.classList.toggle("menu-aberto");
+    menuButton.setAttribute(
+        "aria-expanded",
+        `${menuAberto}`
+    );
 
+    if (menuAberto) {
+        menuButton.setAttribute(
+            "aria-label",
+            `Fechar menu`
+        );
+    } else {
+        menuButton.setAttribute(
+            "aria-label",
+            `Abrir menu`
+        );
+    }
 }
 
 
 function atualizarRodape() {
+    const anoAtual = new Date().getFullYear();
 
-    const anoAtual =
-        new Date().getFullYear();
+    const anos = document.querySelectorAll(".ano");
+    const modificacoes = document.querySelectorAll(".modificacao");
 
+    anos.forEach((elemento) => {
+        elemento.textContent = `${anoAtual}`;
+    });
 
-    document
-        .querySelectorAll(".ano")
-        .forEach((elemento) => {
-
-            elemento.textContent =
-                `${anoAtual}`;
-
-        });
-
-
-    document
-        .querySelectorAll(".modificacao")
-        .forEach((elemento) => {
-
-            elemento.textContent =
-                `Última modificação: ${document.lastModified}`;
-
-        });
-
+    modificacoes.forEach((elemento) => {
+        elemento.textContent =
+            `Última modificação: ${document.lastModified}`;
+    });
 }
 
 
-if (menuButton) {
-
+if (menuButton && menu) {
     menuButton.addEventListener(
         "click",
         mostrarMenu
     );
-
 }
 
 

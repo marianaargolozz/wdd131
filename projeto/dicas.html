@@ -7,17 +7,17 @@
 
     <meta
         name="description"
-        content="Veja dicas simples de foco, organização e bem-estar para melhorar sua rotina diária com ajuda do RotinaFlow."
+        content="Veja dicas simples de foco, organização e bem-estar para melhorar sua rotina diária com a ajuda do RotinaFlow."
     >
 
-    <meta name="author" content="Mariana">
+    <meta name="author" content="Mariana SEU SOBRENOME">
 
     <title>Dicas | RotinaFlow</title>
 
-    <link rel="stylesheet" href="styles/rotinaflow.css">
+    <link rel="stylesheet" href="../estilos/rotinaflow.css">
 
-    <script src="scripts/main.js" defer></script>
-    <script src="scripts/dicas.js" defer></script>
+    <script src="../scripts/main.js" defer></script>
+    <script src="../scripts/dicas.js" defer></script>
 </head>
 
 <body>
@@ -27,14 +27,15 @@
         <div class="topo">
 
             <a href="index.html" class="logo">
-                <span>✓</span>
-                RotinaFlow
+                <span class="logo-simbolo">✓</span>
+                <span>RotinaFlow</span>
             </a>
 
             <button
                 id="menu-button"
                 type="button"
                 aria-label="Abrir menu"
+                aria-expanded="false"
             >
                 ☰
             </button>
@@ -48,7 +49,6 @@
         </div>
 
     </header>
-
 
     <main>
 
@@ -69,60 +69,61 @@
 
         </section>
 
-
         <section class="secao">
 
-            <div class="filtros filtros-dicas">
+            <div class="conteudo-secao">
 
-                <button
-                    type="button"
-                    class="filtro filtro-dica ativo-filtro"
-                    data-categoria="Todas"
-                >
-                    Todas
-                </button>
+                <div class="filtros filtros-dicas">
 
-                <button
-                    type="button"
-                    class="filtro filtro-dica"
-                    data-categoria="Foco"
-                >
-                    Foco
-                </button>
+                    <button
+                        type="button"
+                        class="filtro filtro-dica ativo-filtro"
+                        data-categoria="Todas"
+                    >
+                        Todas
+                    </button>
 
-                <button
-                    type="button"
-                    class="filtro filtro-dica"
-                    data-categoria="Organização"
-                >
-                    Organização
-                </button>
+                    <button
+                        type="button"
+                        class="filtro filtro-dica"
+                        data-categoria="Foco"
+                    >
+                        Foco
+                    </button>
 
-                <button
-                    type="button"
-                    class="filtro filtro-dica"
-                    data-categoria="Bem-estar"
-                >
-                    Bem-estar
-                </button>
+                    <button
+                        type="button"
+                        class="filtro filtro-dica"
+                        data-categoria="Organização"
+                    >
+                        Organização
+                    </button>
+
+                    <button
+                        type="button"
+                        class="filtro filtro-dica"
+                        data-categoria="Bem-estar"
+                    >
+                        Bem-estar
+                    </button>
+
+                </div>
+
+                <div
+                    id="lista-dicas"
+                    class="cards"
+                    aria-live="polite"
+                ></div>
 
             </div>
 
-
-            <div
-                id="lista-dicas"
-                class="cards"
-            ></div>
-
         </section>
-
 
         <section class="secao secao-clara">
 
             <div class="chamada">
 
                 <div>
-
                     <h2>
                         Não precisa fazer tudo hoje.
                     </h2>
@@ -131,7 +132,6 @@
                         Escolher prioridades também significa
                         decidir o que pode esperar.
                     </p>
-
                 </div>
 
                 <a href="tarefas.html" class="botao">
@@ -143,7 +143,6 @@
         </section>
 
     </main>
-
 
     <footer>
 

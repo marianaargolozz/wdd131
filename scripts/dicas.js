@@ -1,47 +1,40 @@
 const dicas = [
-
     {
         categoria: "Foco",
         titulo: "Escolha três prioridades",
         texto:
             "Escolha até três tarefas importantes para realizar durante o dia."
     },
-
     {
         categoria: "Organização",
         titulo: "Anote suas tarefas",
         texto:
-            "Não tente lembrar de tudo. Colocar as tarefas no papel ou em uma lista ajuda a organizar a mente."
+            "Não tente lembrar de tudo. Escrever as tarefas ajuda a organizar melhor a mente."
     },
-
     {
         categoria: "Bem-estar",
         titulo: "Faça pequenas pausas",
         texto:
             "Parar por alguns minutos pode ajudar você a recuperar a concentração."
     },
-
     {
         categoria: "Foco",
         titulo: "Comece por uma tarefa pequena",
         texto:
             "Quando estiver difícil começar, escolha uma atividade simples para ganhar ritmo."
     },
-
     {
         categoria: "Organização",
         titulo: "Agrupe tarefas parecidas",
         texto:
             "Realizar tarefas semelhantes em sequência pode facilitar sua organização."
     },
-
     {
         categoria: "Bem-estar",
-        titulo: "Não preencha todo o seu tempo",
+        titulo: "Deixe espaço na rotina",
         texto:
-            "Deixe um pouco de espaço na rotina para pausas e situações inesperadas."
+            "Reserve um pouco de tempo para pausas e situações inesperadas durante o dia."
     }
-
 ];
 
 
@@ -52,43 +45,40 @@ const filtros =
     document.querySelectorAll(".filtro-dica");
 
 
-let categoriaAtual =
-    "Todas";
+let categoriaAtual = "Todas";
 
 
-function mostrarDicas() {
+function filtrarDicas() {
 
-    listaDicas.innerHTML =
-        "";
-
-
-    let dicasMostrar =
-        dicas;
-
-
-    if (categoriaAtual !== "Todas") {
-
-        dicasMostrar =
-            dicas.filter(
-                (dica) =>
-                    dica.categoria === categoriaAtual
-            );
-
+    if (categoriaAtual === "Todas") {
+        return dicas;
     }
 
 
-    dicasMostrar.forEach((dica) => {
+    return dicas.filter(
+        (dica) =>
+            dica.categoria === categoriaAtual
+    );
+}
+
+
+function mostrarDicas() {
+    listaDicas.innerHTML = ``;
+
+    const resultado =
+        filtrarDicas();
+
+
+    resultado.forEach((dica) => {
 
         const card =
             document.createElement("article");
 
 
-        card.className =
-            "card";
+        card.className = `card`;
 
 
         card.innerHTML = `
-
             <p class="categoria">
                 ${dica.categoria}
             </p>
@@ -100,51 +90,41 @@ function mostrarDicas() {
             <p>
                 ${dica.texto}
             </p>
-
         `;
 
 
-        listaDicas.appendChild(
-            card
-        );
+        listaDicas.appendChild(card);
 
     });
-
 }
 
 
 function mudarCategoria(evento) {
-
     categoriaAtual =
-        evento.target.dataset.categoria;
+        evento.currentTarget.dataset.categoria;
 
 
     filtros.forEach((botao) => {
-
         botao.classList.remove(
             "ativo-filtro"
         );
-
     });
 
 
-    evento.target.classList.add(
+    evento.currentTarget.classList.add(
         "ativo-filtro"
     );
 
 
     mostrarDicas();
-
 }
 
 
 filtros.forEach((botao) => {
-
     botao.addEventListener(
         "click",
         mudarCategoria
     );
-
 });
 
 

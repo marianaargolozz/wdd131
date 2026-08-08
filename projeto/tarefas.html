@@ -7,17 +7,17 @@
 
     <meta
         name="description"
-        content="Organize tarefas no RotinaFlow, escolha categorias e prioridades e acompanhe as atividades concluídas durante o dia."
+        content="Organize suas tarefas no RotinaFlow, escolha categorias e prioridades e acompanhe as atividades concluídas durante o dia."
     >
 
-    <meta name="author" content="Mariana">
+    <meta name="author" content="Mariana SEU SOBRENOME">
 
     <title>Minhas Tarefas | RotinaFlow</title>
 
-    <link rel="stylesheet" href="styles/rotinaflow.css">
+    <link rel="stylesheet" href="../estilos/rotinaflow.css">
 
-    <script src="scripts/main.js" defer></script>
-    <script src="scripts/tarefas.js" defer></script>
+    <script src="../scripts/main.js" defer></script>
+    <script src="../scripts/tarefas.js" defer></script>
 </head>
 
 <body>
@@ -27,14 +27,15 @@
         <div class="topo">
 
             <a href="index.html" class="logo">
-                <span>✓</span>
-                RotinaFlow
+                <span class="logo-simbolo">✓</span>
+                <span>RotinaFlow</span>
             </a>
 
             <button
                 id="menu-button"
                 type="button"
                 aria-label="Abrir menu"
+                aria-expanded="false"
             >
                 ☰
             </button>
@@ -48,7 +49,6 @@
         </div>
 
     </header>
-
 
     <main>
 
@@ -68,7 +68,6 @@
             </p>
 
         </section>
-
 
         <section class="area-tarefas">
 
@@ -90,7 +89,6 @@
                         required
                     >
 
-
                     <label for="categoria">
                         Categoria
                     </label>
@@ -100,7 +98,6 @@
                         name="categoria"
                         required
                     >
-
                         <option value="" disabled selected>
                             Selecione
                         </option>
@@ -120,9 +117,7 @@
                         <option value="Casa">
                             Casa
                         </option>
-
                     </select>
-
 
                     <label for="prioridade">
                         Prioridade
@@ -133,7 +128,6 @@
                         name="prioridade"
                         required
                     >
-
                         <option value="" disabled selected>
                             Selecione
                         </option>
@@ -149,11 +143,9 @@
                         <option value="Baixa">
                             Baixa
                         </option>
-
                     </select>
 
-
-                    <button type="submit" class="botao">
+                    <button type="submit" class="botao botao-formulario">
                         Adicionar tarefa
                     </button>
 
@@ -167,7 +159,6 @@
 
             </div>
 
-
             <div class="lista-card">
 
                 <div class="lista-topo">
@@ -179,7 +170,6 @@
                             0 de 0 concluídas
                         </p>
                     </div>
-
 
                     <div class="filtros">
 
@@ -211,15 +201,16 @@
 
                 </div>
 
-
-                <div id="lista-tarefas"></div>
+                <div
+                    id="lista-tarefas"
+                    aria-live="polite"
+                ></div>
 
             </div>
 
         </section>
 
     </main>
-
 
     <footer>
 

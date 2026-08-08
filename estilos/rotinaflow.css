@@ -7,9 +7,11 @@
     --roxo: #6548c8;
     --roxo-escuro: #382b68;
     --lilas: #eeeafd;
-    --coral: #e97862;
+    --coral: #d86550;
+
     --texto: #292638;
     --cinza: #686473;
+
     --fundo: #faf9fd;
     --branco: #ffffff;
     --borda: #ddd9e8;
@@ -23,10 +25,7 @@ body {
 
     color: var(--texto);
 
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 
     line-height: 1.6;
 }
@@ -44,9 +43,11 @@ h3,
 
 
 h1 {
+    margin-bottom: 1rem;
+
     font-size: 2.8rem;
 
-    line-height: 1.1;
+    line-height: 1.15;
 }
 
 
@@ -57,6 +58,18 @@ h2 {
 
 a {
     color: inherit;
+}
+
+
+/* CABEÇALHO */
+
+header {
+    position: relative;
+
+    border-bottom:
+        1px solid var(--borda);
+
+    background-color: var(--branco);
 }
 
 
@@ -79,21 +92,12 @@ a {
 }
 
 
-header {
-    border-bottom:
-        1px solid var(--borda);
-
-    background-color:
-        var(--branco);
-}
-
-
 .logo {
     display: flex;
 
     align-items: center;
 
-    gap: 0.5rem;
+    gap: 0.6rem;
 
     color: var(--roxo-escuro);
 
@@ -105,11 +109,11 @@ header {
 }
 
 
-.logo span:first-child {
+.logo-simbolo {
     display: grid;
 
-    width: 35px;
-    height: 35px;
+    width: 36px;
+    height: 36px;
 
     place-items: center;
 
@@ -124,7 +128,7 @@ header {
 nav {
     display: flex;
 
-    gap: 0.5rem;
+    gap: 0.4rem;
 }
 
 
@@ -152,9 +156,9 @@ nav .ativo {
 #menu-button {
     display: none;
 
-    border: 0;
+    border: none;
 
-    background: none;
+    background-color: transparent;
 
     color: var(--roxo-escuro);
 
@@ -164,7 +168,7 @@ nav .ativo {
 }
 
 
-/* INÍCIO */
+/* PÁGINA INICIAL */
 
 .inicio {
     display: grid;
@@ -214,7 +218,7 @@ nav .ativo {
         0.8rem
         1.2rem;
 
-    border: 0;
+    border: none;
 
     border-radius: 8px;
 
@@ -227,12 +231,19 @@ nav .ativo {
     text-decoration: none;
 
     cursor: pointer;
+
+    transition:
+        background-color 0.2s,
+        transform 0.2s;
 }
 
 
 .botao:hover {
     background-color:
         var(--roxo-escuro);
+
+    transform:
+        translateY(-2px);
 }
 
 
@@ -271,11 +282,14 @@ nav .ativo {
 
     padding: 0.8rem;
 
+    border-left:
+        4px solid var(--coral);
+
     border-radius: 8px;
 
     background-color: #fff0ec;
 
-    color: #7d4539;
+    color: #763e34;
 }
 
 
@@ -288,13 +302,10 @@ nav .ativo {
 }
 
 
-.secao > h2,
-.secao > .cards,
-.filtros-dicas {
+.conteudo-secao {
     max-width: 1100px;
 
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
 }
 
 
@@ -313,15 +324,44 @@ nav .ativo {
 }
 
 
-.card {
-    padding: 1.4rem;
-
+.card,
+.formulario-card,
+.lista-card {
     border:
         1px solid var(--borda);
 
     border-radius: 12px;
 
     background-color: var(--branco);
+}
+
+
+.card {
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 1.4rem;
+}
+
+
+.card::before {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 4px;
+    height: 100%;
+
+    background-color: var(--roxo);
+
+    content: "";
+}
+
+
+.card:nth-child(2)::before {
+    background-color: var(--coral);
 }
 
 
@@ -365,7 +405,7 @@ nav .ativo {
 }
 
 
-/* PÁGINAS */
+/* TÍTULO DAS PÁGINAS */
 
 .titulo-pagina {
     max-width: 1100px;
@@ -384,7 +424,7 @@ nav .ativo {
 }
 
 
-/* FORMULÁRIO */
+/* TAREFAS */
 
 .area-tarefas {
     display: grid;
@@ -409,13 +449,6 @@ nav .ativo {
 .formulario-card,
 .lista-card {
     padding: 1.5rem;
-
-    border:
-        1px solid var(--borda);
-
-    border-radius: 12px;
-
-    background-color: var(--branco);
 }
 
 
@@ -447,14 +480,30 @@ form select {
 }
 
 
+form input:focus,
+form select:focus {
+    border-color: var(--roxo);
+
+    outline:
+        2px solid var(--lilas);
+}
+
+
+.botao-formulario {
+    width: 100%;
+}
+
+
 .mensagem-formulario {
+    min-height: 1.5rem;
+
     color: #287046;
 
     font-size: 0.9rem;
 }
 
 
-/* LISTA */
+/* LISTA DE TAREFAS */
 
 .lista-topo {
     display: flex;
@@ -497,12 +546,13 @@ form select {
 }
 
 
+.filtro:hover,
 .ativo-filtro {
+    border-color: var(--roxo);
+
     background-color: var(--lilas);
 
     color: var(--roxo);
-
-    border-color: var(--roxo);
 }
 
 
@@ -526,6 +576,14 @@ form select {
         1px solid var(--borda);
 
     border-radius: 10px;
+
+    transition:
+        background-color 0.2s;
+}
+
+
+.tarefa:hover {
+    background-color: var(--fundo);
 }
 
 
@@ -546,6 +604,12 @@ form select {
 }
 
 
+.tarefa-concluida {
+    border-left:
+        4px solid var(--roxo);
+}
+
+
 .tarefa-concluida h3 {
     color: var(--cinza);
 
@@ -554,9 +618,9 @@ form select {
 
 
 .botao-check {
-    border: 0;
+    border: none;
 
-    background: none;
+    background-color: transparent;
 
     color: var(--roxo);
 
@@ -569,11 +633,11 @@ form select {
 .botao-excluir {
     padding: 0.4rem;
 
-    border: 0;
+    border: none;
 
-    background: none;
+    background-color: transparent;
 
-    color: #8f4438;
+    color: #873c31;
 
     cursor: pointer;
 }
@@ -615,7 +679,9 @@ form select {
 /* RODAPÉ */
 
 footer {
-    padding: 2rem 1rem;
+    padding:
+        2rem
+        1rem;
 
     background-color: var(--roxo-escuro);
 
@@ -687,6 +753,8 @@ footer p {
         border-radius: 10px;
 
         background-color: var(--branco);
+
+        z-index: 10;
     }
 
 
