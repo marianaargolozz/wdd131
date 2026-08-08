@@ -3,20 +3,18 @@
 
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta
         name="description"
-        content="Confirmação do envio da avaliação de produto."
+        content="Página de confirmação do envio da avaliação de produto com contador das avaliações concluídas pelo usuário."
     >
 
-    <meta name="author" content="Lucas">
+    <meta name="author" content="Mariana">
 
     <title>Avaliação Enviada</title>
 
     <link rel="stylesheet" href="estilos/formulario.css">
-
     <script src="scripts/avaliacao.js" defer></script>
 </head>
 
@@ -26,19 +24,18 @@
         <h1>Avaliação de Produto</h1>
     </header>
 
-
     <main class="confirmacao">
 
         <section class="cartao-confirmacao">
 
-            <div class="icone-sucesso">
+            <div class="icone-sucesso" aria-hidden="true">
                 ✓
             </div>
 
             <h2>Avaliação enviada!</h2>
 
             <p>
-                Obrigado por compartilhar sua opinião.
+                Obrigada por compartilhar sua opinião.
             </p>
 
             <p>
@@ -61,7 +58,7 @@
         <p>
             &copy;
             <span id="anoAtual"></span>
-            | Lucas | Brasil
+            | Mariana | Brasil
         </p>
 
         <p id="ultimaModificacao"></p>
@@ -69,5 +66,4 @@
     </footer>
 
 </body>
-
 </html>

@@ -26,30 +26,20 @@ const produtos = [
     }
 ];
 
-
 const produtoSelect = document.querySelector("#produto");
 
-
 produtos.forEach((produto) => {
-
     const option = document.createElement("option");
 
     option.value = produto.id;
-
     option.textContent = produto.nome;
 
     produtoSelect.appendChild(option);
-
 });
 
-
 const anoAtual = document.querySelector("#anoAtual");
-
 anoAtual.textContent = new Date().getFullYear();
 
-
-const ultimaModificacao =
-    document.querySelector("#ultimaModificacao");
-
+const ultimaModificacao = document.querySelector("#ultimaModificacao");
 ultimaModificacao.textContent =
     `Última modificação: ${document.lastModified}`;

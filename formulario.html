@@ -7,15 +7,14 @@
 
     <meta
         name="description"
-        content="Formulário de avaliação de produtos."
+        content="Formulário para avaliar produtos, informar classificação, recursos úteis, data de instalação e compartilhar sua experiência."
     >
 
-    <meta name="author" content="Lucas">
+    <meta name="author" content="Mariana">
 
     <title>Avaliação de Produto</title>
 
     <link rel="stylesheet" href="estilos/formulario.css">
-
     <script src="scripts/formulario.js" defer></script>
 </head>
 
@@ -29,23 +28,15 @@
 
         <form method="get" action="avaliacao.html">
 
-            <!-- NOME DO PRODUTO -->
+            <!-- PRODUTO -->
 
             <label for="produto">
                 Nome do Produto
                 <span class="obrigatorio">*</span>
             </label>
 
-            <select
-                id="produto"
-                name="produto"
-                required
-            >
-                <option
-                    value=""
-                    disabled
-                    selected
-                >
+            <select id="produto" name="produto" required>
+                <option value="" disabled selected>
                     Selecione um Produto...
                 </option>
             </select>
@@ -60,10 +51,12 @@
                     <span class="obrigatorio">*</span>
                 </legend>
 
-                <div class="estrelas">
+                <div class="classificacao">
 
                     <label for="estrela1">
-                        <span>☆</span>
+                        <span class="estrela">☆</span>
+                        <span>1</span>
+
                         <input
                             type="radio"
                             id="estrela1"
@@ -71,11 +64,13 @@
                             value="1"
                             required
                         >
-                        <small>1</small>
                     </label>
 
+
                     <label for="estrela2">
-                        <span>☆☆</span>
+                        <span class="estrela">☆</span>
+                        <span>2</span>
+
                         <input
                             type="radio"
                             id="estrela2"
@@ -83,11 +78,13 @@
                             value="2"
                             required
                         >
-                        <small>2</small>
                     </label>
 
+
                     <label for="estrela3">
-                        <span>☆☆☆</span>
+                        <span class="estrela">☆</span>
+                        <span>3</span>
+
                         <input
                             type="radio"
                             id="estrela3"
@@ -95,11 +92,13 @@
                             value="3"
                             required
                         >
-                        <small>3</small>
                     </label>
 
+
                     <label for="estrela4">
-                        <span>☆☆☆☆</span>
+                        <span class="estrela">☆</span>
+                        <span>4</span>
+
                         <input
                             type="radio"
                             id="estrela4"
@@ -107,11 +106,13 @@
                             value="4"
                             required
                         >
-                        <small>4</small>
                     </label>
 
+
                     <label for="estrela5">
-                        <span>☆☆☆☆☆</span>
+                        <span class="estrela">☆</span>
+                        <span>5</span>
+
                         <input
                             type="radio"
                             id="estrela5"
@@ -119,7 +120,6 @@
                             value="5"
                             required
                         >
-                        <small>5</small>
                     </label>
 
                 </div>
@@ -147,14 +147,14 @@
             <fieldset>
 
                 <legend>
-                    Quais recursos você achou úteis?
+                    Recursos Úteis
                 </legend>
 
                 <p class="instrucao">
                     Marque todas as opções aplicáveis.
                 </p>
 
-                <div class="checkbox">
+                <div class="checkbox-group">
 
                     <label for="durabilidade">
                         <input
@@ -204,7 +204,7 @@
             </fieldset>
 
 
-            <!-- AVALIAÇÃO ESCRITA -->
+            <!-- AVALIAÇÃO -->
 
             <label for="avaliacao-escrita">
                 Avaliação Escrita
@@ -251,7 +251,7 @@
         <p>
             &copy;
             <span id="anoAtual"></span>
-            | Lucas | Brasil
+            | Mariana | Brasil
         </p>
 
         <p id="ultimaModificacao"></p>
@@ -259,5 +259,4 @@
     </footer>
 
 </body>
-
 </html>
