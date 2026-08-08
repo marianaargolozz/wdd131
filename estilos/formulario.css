@@ -1,0 +1,281 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --roxo: #4d2c91;
+    --roxo-claro: #eee7fa;
+    --roxo-hover: #371d70;
+    --texto: #25222b;
+    --branco: #ffffff;
+    --cinza: #f5f3f7;
+    --borda: #c9c4cf;
+    --sucesso: #287a43;
+}
+
+body {
+    margin: 0;
+    background-color: var(--cinza);
+    color: var(--texto);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
+
+/* CABEÇALHO */
+
+header {
+    padding: 1.5rem;
+    background-color: var(--roxo);
+    color: var(--branco);
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+
+/* CONTEÚDO */
+
+main {
+    width: min(100% - 2rem, 600px);
+    margin: 2rem auto;
+}
+
+
+/* FORMULÁRIO */
+
+form {
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: var(--branco);
+    box-shadow: 0 3px 12px rgb(0 0 0 / 12%);
+}
+
+
+label,
+legend {
+    font-weight: 700;
+}
+
+
+label {
+    display: block;
+    margin-top: 1.4rem;
+}
+
+
+select,
+input[type="date"],
+input[type="text"],
+textarea {
+    width: 100%;
+    min-height: 44px;
+    margin-top: 0.4rem;
+    padding: 0.8rem;
+    border: 1px solid var(--borda);
+    border-radius: 6px;
+    background-color: var(--branco);
+    color: var(--texto);
+    font-size: 1rem;
+}
+
+
+textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+
+select:focus,
+input:focus,
+textarea:focus {
+    outline: 3px solid var(--roxo-claro);
+    border-color: var(--roxo);
+}
+
+
+/* OBRIGATÓRIO */
+
+.obrigatorio {
+    color: #9a1b1b;
+}
+
+.opcional {
+    color: #625c68;
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
+.instrucao {
+    margin: 0.2rem 0 0.8rem;
+    font-size: 0.9rem;
+}
+
+
+/* FIELDSET */
+
+fieldset {
+    margin: 1.8rem 0;
+    padding: 0;
+    border: 0;
+}
+
+
+/* ESTRELAS */
+
+.estrelas {
+    display: flex;
+    gap: 0.7rem;
+    margin-top: 0.7rem;
+    flex-wrap: wrap;
+}
+
+.estrelas label {
+    display: flex;
+    margin: 0;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.estrelas span {
+    color: var(--roxo);
+    font-size: 1.2rem;
+}
+
+.estrelas input {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.estrelas small {
+    margin-top: 0.2rem;
+}
+
+
+/* CHECKBOX */
+
+.checkbox {
+    display: grid;
+    gap: 0.7rem;
+}
+
+.checkbox label {
+    display: flex;
+    margin: 0;
+    align-items: center;
+    gap: 0.7rem;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.checkbox input {
+    width: 20px;
+    height: 20px;
+}
+
+
+/* BOTÃO */
+
+input[type="submit"] {
+    width: 100%;
+    min-height: 50px;
+    margin-top: 2rem;
+    border: 0;
+    border-radius: 6px;
+    background-color: var(--roxo);
+    color: var(--branco);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--roxo-hover);
+}
+
+
+/* CONFIRMAÇÃO */
+
+.confirmacao {
+    min-height: 55vh;
+    display: grid;
+    place-items: center;
+}
+
+.cartao-confirmacao {
+    width: 100%;
+    padding: 2.5rem 1.5rem;
+    border-radius: 10px;
+    background-color: var(--branco);
+    box-shadow: 0 3px 12px rgb(0 0 0 / 12%);
+    text-align: center;
+}
+
+.cartao-confirmacao h2 {
+    color: var(--roxo);
+}
+
+.icone-sucesso {
+    display: flex;
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 1rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--sucesso);
+    color: var(--branco);
+    font-size: 2rem;
+}
+
+.botao-voltar {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.8rem 1.4rem;
+    border-radius: 6px;
+    background-color: var(--roxo);
+    color: var(--branco);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.botao-voltar:hover {
+    background-color: var(--roxo-hover);
+}
+
+
+/* RODAPÉ */
+
+footer {
+    padding: 1.5rem;
+    background-color: var(--roxo);
+    color: var(--branco);
+    text-align: center;
+}
+
+footer p {
+    margin: 0.3rem;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 500px) {
+
+    form {
+        padding: 1.2rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .estrelas {
+        gap: 0.35rem;
+    }
+}

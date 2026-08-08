@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Formulário de avaliação de produtos."
+    >
+
+    <meta name="author" content="Lucas">
+
+    <title>Avaliação de Produto</title>
+
+    <link rel="stylesheet" href="estilos/formulario.css">
+
+    <script src="scripts/formulario.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <h1>Avaliação de Produto</h1>
+    </header>
+
+    <main>
+
+        <form method="get" action="avaliacao.html">
+
+            <!-- NOME DO PRODUTO -->
+
+            <label for="produto">
+                Nome do Produto
+                <span class="obrigatorio">*</span>
+            </label>
+
+            <select
+                id="produto"
+                name="produto"
+                required
+            >
+                <option
+                    value=""
+                    disabled
+                    selected
+                >
+                    Selecione um Produto...
+                </option>
+            </select>
+
+
+            <!-- CLASSIFICAÇÃO -->
+
+            <fieldset>
+
+                <legend>
+                    Classificação Geral
+                    <span class="obrigatorio">*</span>
+                </legend>
+
+                <div class="estrelas">
+
+                    <label for="estrela1">
+                        <span>☆</span>
+                        <input
+                            type="radio"
+                            id="estrela1"
+                            name="classificacao"
+                            value="1"
+                            required
+                        >
+                        <small>1</small>
+                    </label>
+
+                    <label for="estrela2">
+                        <span>☆☆</span>
+                        <input
+                            type="radio"
+                            id="estrela2"
+                            name="classificacao"
+                            value="2"
+                            required
+                        >
+                        <small>2</small>
+                    </label>
+
+                    <label for="estrela3">
+                        <span>☆☆☆</span>
+                        <input
+                            type="radio"
+                            id="estrela3"
+                            name="classificacao"
+                            value="3"
+                            required
+                        >
+                        <small>3</small>
+                    </label>
+
+                    <label for="estrela4">
+                        <span>☆☆☆☆</span>
+                        <input
+                            type="radio"
+                            id="estrela4"
+                            name="classificacao"
+                            value="4"
+                            required
+                        >
+                        <small>4</small>
+                    </label>
+
+                    <label for="estrela5">
+                        <span>☆☆☆☆☆</span>
+                        <input
+                            type="radio"
+                            id="estrela5"
+                            name="classificacao"
+                            value="5"
+                            required
+                        >
+                        <small>5</small>
+                    </label>
+
+                </div>
+
+            </fieldset>
+
+
+            <!-- DATA -->
+
+            <label for="data-instalacao">
+                Data de Instalação
+                <span class="obrigatorio">*</span>
+            </label>
+
+            <input
+                type="date"
+                id="data-instalacao"
+                name="data-instalacao"
+                required
+            >
+
+
+            <!-- RECURSOS -->
+
+            <fieldset>
+
+                <legend>
+                    Quais recursos você achou úteis?
+                </legend>
+
+                <p class="instrucao">
+                    Marque todas as opções aplicáveis.
+                </p>
+
+                <div class="checkbox">
+
+                    <label for="durabilidade">
+                        <input
+                            type="checkbox"
+                            id="durabilidade"
+                            name="recursos"
+                            value="durabilidade"
+                        >
+                        Durabilidade
+                    </label>
+
+
+                    <label for="facilidade">
+                        <input
+                            type="checkbox"
+                            id="facilidade"
+                            name="recursos"
+                            value="facilidade-de-uso"
+                        >
+                        Facilidade de Uso
+                    </label>
+
+
+                    <label for="desempenho">
+                        <input
+                            type="checkbox"
+                            id="desempenho"
+                            name="recursos"
+                            value="desempenho"
+                        >
+                        Desempenho
+                    </label>
+
+
+                    <label for="design">
+                        <input
+                            type="checkbox"
+                            id="design"
+                            name="recursos"
+                            value="design"
+                        >
+                        Design
+                    </label>
+
+                </div>
+
+            </fieldset>
+
+
+            <!-- AVALIAÇÃO ESCRITA -->
+
+            <label for="avaliacao-escrita">
+                Avaliação Escrita
+                <span class="opcional">(Opcional)</span>
+            </label>
+
+            <textarea
+                id="avaliacao-escrita"
+                name="avaliacao-escrita"
+                rows="6"
+                placeholder="Conte como foi sua experiência com o produto..."
+            ></textarea>
+
+
+            <!-- NOME -->
+
+            <label for="nome">
+                Seu Nome
+                <span class="opcional">(Opcional)</span>
+            </label>
+
+            <input
+                type="text"
+                id="nome"
+                name="nome"
+                autocomplete="name"
+            >
+
+
+            <!-- ENVIAR -->
+
+            <input
+                type="submit"
+                value="Enviar Avaliação"
+            >
+
+        </form>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            &copy;
+            <span id="anoAtual"></span>
+            | Lucas | Brasil
+        </p>
+
+        <p id="ultimaModificacao"></p>
+
+    </footer>
+
+</body>
+
+</html>
